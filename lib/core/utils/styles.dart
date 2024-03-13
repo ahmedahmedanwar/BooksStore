@@ -22,7 +22,7 @@ abstract class Styles {
     fontSize: 20,
     color: Colors.white,
     decoration: TextDecoration.none,
-    fontFamily: KGSectraFine,
+   
   );
   static const textStyle30 = TextStyle(
     fontWeight: FontWeight.normal,
