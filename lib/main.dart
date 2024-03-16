@@ -1,7 +1,6 @@
 import 'package:book_store/constants.dart';
-import 'package:book_store/features/splash/presentation/views/splash_view.dart';
+import 'package:book_store/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -14,15 +13,27 @@ class BookStore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GetMaterialApp(
+
+    return  MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: KPrimaryColor,
         textTheme: GoogleFonts.montserratTextTheme(
           ThemeData.dark().textTheme,
         ),
       ),
-      home: const SplashView(),
+   
     );
+    // return  GetMaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData.dark().copyWith(
+    //     scaffoldBackgroundColor: KPrimaryColor,
+    //     textTheme: GoogleFonts.montserratTextTheme(
+    //       ThemeData.dark().textTheme,
+    //     ),
+    //   ),
+    //   home: const SplashView(),
+    // );
   }
 }
