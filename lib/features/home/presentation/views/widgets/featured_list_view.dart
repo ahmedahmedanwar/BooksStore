@@ -1,5 +1,5 @@
 
-import 'package:book_store/features/home/presentation/views/widgets/custom_list_view_item.dart';
+import 'package:book_store/features/home/presentation/views/widgets/custom_book_image_item.dart';
 import 'package:flutter/material.dart';
 
 class FeatueredBooksListView extends StatelessWidget {
@@ -14,7 +14,7 @@ class FeatueredBooksListView extends StatelessWidget {
         itemBuilder: (context,index){
         return const Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0),
-          child: CustomListViewItem(),
+          child: CustomBookImage(),
           
         );
       }),

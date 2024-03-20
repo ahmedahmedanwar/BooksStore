@@ -1,3 +1,4 @@
+import 'package:book_store/features/home/presentation/views/book_details_view.dart';
 import 'package:book_store/features/home/presentation/views/home_view.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_drawer.dart';
 import 'package:book_store/features/splash/presentation/views/splash_view.dart';
@@ -7,6 +8,7 @@ abstract class AppRouter {
   // ignore: constant_identifier_names
   static const KHomeView = '/homeView';
   static const KMainDrawer = '/drawer';
+  static const KBookDetailsView = '/bookDetailsView';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -21,6 +23,11 @@ abstract class AppRouter {
       
       path: KMainDrawer,
       builder: (context, state) => const MainDrawer(),
+    ),
+     GoRoute(
+      
+      path: KBookDetailsView,
+      builder: (context, state) => const BookDetailsView(),
     ),
   ],
   );
