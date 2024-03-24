@@ -1,5 +1,5 @@
 import 'package:book_store/core/utils/styles.dart';
-import 'package:book_store/features/home/presentation/views/widgets/booking_rating.dart';
+import 'package:book_store/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -71,7 +71,7 @@ class BestSellerListViewItem extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      const BookingRating(),
+                      const BookRating(),
                     ],
                   ),
                 ],
