@@ -8,20 +8,23 @@ class CustumAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    
-    
     return Padding(
-      padding:  const EdgeInsets.only(top:40 ,bottom:20 ),
+      padding: const EdgeInsets.only(top: 40, bottom: 20),
       child: Row(
         children: [
           // Padding(
           //   padding: const EdgeInsets.only(right: 5),
           //   child: IconButton(onPressed: (){
-             
+
           //     GoRouter.of(context).push(AppRouter.KMainDrawer);
           //   },icon: const Icon(FontAwesomeIcons.bars,),),
           // ),
+
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                FontAwesomeIcons.bars,
+              )),
           Image.asset(
             AssetsData.logo,
             height: 25,

@@ -10,6 +10,8 @@ class CustomButton extends StatelessWidget {
     this.borderRadius,
     this.fontWeight,
     required this.text,
+     this.fontSize,
+    
   });
 
   final Color backgroundColor;
@@ -17,6 +19,7 @@ class CustomButton extends StatelessWidget {
   final BorderRadius? borderRadius;
   final FontWeight? fontWeight;
   final String text;
+  final double? fontSize;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -36,6 +39,7 @@ class CustomButton extends StatelessWidget {
           style: Styles.textStyle18.copyWith(
             color: textColor,
             fontWeight: fontWeight ?? FontWeight.w900,
+            fontSize: fontSize,
           ),
         ),
       ),
