@@ -11,20 +11,19 @@ class SlidingText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: slidingAnimation,
-      builder: (context,_) {
-        return SlideTransition(
-          position: slidingAnimation,
-          child:  const Text(
-            'All free box inside your hands',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-                color: Colors.lightBlue),
-          ),
-        );
-      }
-    );
+        animation: slidingAnimation,
+        builder: (context, _) {
+          return SlideTransition(
+            position: slidingAnimation,
+            child: const Text(
+              'All free box inside your hands',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.lightBlue),
+            ),
+          );
+        });
   }
 }

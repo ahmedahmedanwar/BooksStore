@@ -48,7 +48,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       ],
     );
   }
-  
+
   void navigateToHomePage() {
     Future.delayed(const Duration(seconds: 2), () {
       GoRouter.of(context).push(AppRouter.KHomeView);
@@ -58,7 +58,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
       //   duration: KTransitionDuration,
       //   transition: Transition.fadeIn,
       // );
-     
     });
   }
 
@@ -74,5 +73,4 @@ class _SplashViewBodyState extends State<SplashViewBody>
       setState(() {});
     });
   }
-
 }

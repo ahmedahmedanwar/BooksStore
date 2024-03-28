@@ -21,7 +21,6 @@ abstract class Styles {
     fontSize: 20,
     color: Colors.white,
     decoration: TextDecoration.none,
-   
   );
   static const textStyle30 = TextStyle(
     fontWeight: FontWeight.bold,

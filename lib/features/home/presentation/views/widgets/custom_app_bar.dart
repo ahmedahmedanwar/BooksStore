@@ -1,5 +1,7 @@
+import 'package:book_store/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
 
@@ -20,18 +22,15 @@ class CustumAppBar extends StatelessWidget {
           //   },icon: const Icon(FontAwesomeIcons.bars,),),
           // ),
 
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                FontAwesomeIcons.bars,
-              )),
           Image.asset(
             AssetsData.logo,
             height: 25,
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.KSearchView);
+            },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
               size: 25,
@@ -61,12 +60,12 @@ class CustumAppBar extends StatelessWidget {
 //       // Set these properties to customize the SliverAppBar behavior
 //       expandedHeight: 100.0, // Height of the expanded app bar
 //       // collapsedHeight: 60.0, // Height of the collapsed app bar
-      
+
 //       leading: SizedBox(
 //         height: 50.0,
 //         child: Image.asset(
 //           AssetsData.logo,
-        
+
 //           fit: BoxFit.fitWidth
 //         ),
 //       ), // Leading widget - your logo
