@@ -3,7 +3,6 @@ import 'package:book_store/features/home/presentation/views/widgets/books_action
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_image_item.dart';
 import 'package:book_store/features/home/presentation/views/widgets/similar_books_list_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -13,26 +12,30 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: [
-        SliverFillRemaining(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-            child: Column(
-              children: [
-                CustomBookDetailsAppBar(),
-                BooksDetailsSection(),
-                Expanded(
-                  child: SizedBox(
-                    height: 50,
+    return Container(
+      color: Theme.of(context).colorScheme.background,
+      child: const CustomScrollView(
+      
+        slivers: [
+          SliverFillRemaining(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+              child: Column(
+                children: [
+                  CustomBookDetailsAppBar(),
+                  BooksDetailsSection(),
+                  Expanded(
+                    child: SizedBox(
+                      height: 50,
+                    ),
                   ),
-                ),
-                SimilarBooksSection(),
-              ],
+                  SimilarBooksSection(),
+                ],
+              ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
@@ -43,8 +46,8 @@ class BooksDetailsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-
     return Column(
+  
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.17),

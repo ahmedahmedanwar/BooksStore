@@ -12,6 +12,7 @@ class CustomSearchTextField extends StatelessWidget {
         //focusedBorder to make it un changable when click on the text filed
         focusedBorder: builedOutlinedInputBorder(),
         hintText: 'Search',
+        // hintStyle: const TextStyle(color: Colors.white),
         suffixIcon: IconButton(
           onPressed: () {},
           icon: const Icon(
