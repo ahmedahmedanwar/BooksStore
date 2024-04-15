@@ -8,7 +8,7 @@ import 'package:dio/dio.dart';
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
 
-  HomeRepoImpl({required this.apiService});
+  HomeRepoImpl( this.apiService);
   String endpoint =
       'volumes?Filtering=free-ebooks&Sorting:newest&q=subject=Programming';
   @override
