@@ -1,16 +1,14 @@
 import 'package:book_store/Theme/dark_mode.dart';
-import 'package:book_store/core/utils/api_service.dart';
 import 'package:book_store/core/utils/app_router.dart';
 import 'package:book_store/core/utils/service_locator.dart';
-import 'package:book_store/features/home/data/repos/home_repo.dart';
 import 'package:book_store/features/home/data/repos/home_repo_implement.dart';
 import 'package:book_store/features/home/presentation/featuerd_books_cubit/featuerd_books_cubit.dart';
 import 'package:book_store/features/home/presentation/newest_books_cubit/newest_books_cubit.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  setupGetItServiceLocator();
   runApp(const BookStore());
 }
 
