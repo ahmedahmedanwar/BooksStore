@@ -6,6 +6,9 @@ class SimilarBooksListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const String imageUrl =
+        'https://brenebrown.com/wp-content/uploads/2019/04/WhichBookDoIReadFirst_HeaderImage_Mobile.jpg';
+
     return SizedBox(
       height: MediaQuery.of(context).size.height * .15,
       child: ListView.builder(
@@ -13,7 +16,7 @@ class SimilarBooksListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
-              child: CustomBookImage(),
+              child: CustomBookImage(imageUrl: imageUrl),
             );
           }),
     );

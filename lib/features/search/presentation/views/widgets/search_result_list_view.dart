@@ -1,4 +1,3 @@
-import 'package:book_store/features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:flutter/cupertino.dart';
 
 class SearchResultListView extends StatelessWidget {
@@ -11,7 +10,9 @@ class SearchResultListView extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: 30,
       itemBuilder: (context, index) {
-        return const BookListViewItem();
+        // after changing books list view items it makes error so for now changing it to a text widget  
+        // return const BookListViewItem();
+        return const Text('Search');
       },
     );
   }

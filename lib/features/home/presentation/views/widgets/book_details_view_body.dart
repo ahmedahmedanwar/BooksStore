@@ -45,13 +45,15 @@ class BooksDetailsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+       const String imageUrl = 'https://brenebrown.com/wp-content/uploads/2019/04/WhichBookDoIReadFirst_HeaderImage_Mobile.jpg';
+
     var width = MediaQuery.of(context).size.width;
     return Column(
   
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.17),
-          child: const CustomBookImage(),
+          child: const CustomBookImage(imageUrl: imageUrl,),
         ),
         const Text(
           "The Book of elie",
@@ -74,7 +76,7 @@ class BooksDetailsSection extends StatelessWidget {
           height: 18.0,
         ),
         const BookRating(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center, rating: 9, ratingCount: 7 ,
         ),
         const SizedBox(
           height: 35.0,

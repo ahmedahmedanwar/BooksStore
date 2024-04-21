@@ -18,6 +18,10 @@ class FeatuerdBooksCubit extends Cubit<FeaturedBooksState> {
       emit(FeaturedBooksFailure(failure.errorMessage));
     }, (books) {
       emit(FeaturedBooksSuccess(books));
-    });
+          
+
+    }
+    );
+   
   }
 }

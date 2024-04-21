@@ -6,53 +6,53 @@ abstract class Failure {
   const Failure(this.errorMessage);
 }
 
-class ServerFaliuere extends Failure {
-  ServerFaliuere(super.errorMessage);
+class ServerFaliuer extends Failure {
+  ServerFaliuer(super.errorMessage);
 
-  factory ServerFaliuere.fromDioError(DioException dioError) {
+  factory ServerFaliuer.fromDioError(DioException dioError) {
     switch (dioError.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFaliuere('Connection timeout API');
+        return ServerFaliuer('Connection timeout API');
 
       case DioExceptionType.sendTimeout:
-        return ServerFaliuere('Send timeout API');
+        return ServerFaliuer('Send timeout API');
 
       case DioExceptionType.receiveTimeout:
-        return ServerFaliuere('Receive timeout API');
+        return ServerFaliuer('Receive timeout API');
 
       case DioExceptionType.badCertificate:
-        return ServerFaliuere('');
+        return ServerFaliuer('');
 
       case DioExceptionType.badResponse:
-        return ServerFaliuere.fromResponse(
+        return ServerFaliuer.fromResponse(
             dioError.response!.statusCode!, dioError.response!.data);
 
       case DioExceptionType.cancel:
-        return ServerFaliuere('Your request was canceled');
+        return ServerFaliuer('Your request was canceled');
 
       case DioExceptionType.connectionError:
-        return ServerFaliuere('Connection Error');
+        return ServerFaliuer('Connection Error');
 
       case DioExceptionType.unknown:
         if (dioError.message!.contains('SocketException')) {
-          return ServerFaliuere('Check your internet');
+          return ServerFaliuer('Check your internet');
         }
-        return ServerFaliuere('There was an error ,please try again later');
+        return ServerFaliuer('There was an error ,please try again later');
 
       default:
-        return ServerFaliuere('There was an error ,please try again later');
+        return ServerFaliuer('There was an error ,please try again later');
     }
   }
 
-  factory ServerFaliuere.fromResponse(int statusCode, dynamic response) {
+  factory ServerFaliuer.fromResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFaliuere(response['error']['message']);
+      return ServerFaliuer(response['error']['message']);
     } else if (statusCode == 404) {
-      return ServerFaliuere('Your request not found please try again later');
+      return ServerFaliuer('Your request not found please try again later');
     } else if (statusCode == 500) {
-      return ServerFaliuere('Internal server error please try again');
+      return ServerFaliuer('Internal server error please try again');
     } else {
-      return ServerFaliuere('There was an error ,please try again later');
+      return ServerFaliuer('There was an error ,please try again later');
     }
   }
 }
