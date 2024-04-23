@@ -15,7 +15,7 @@ class CustomBookDetailsAppBar extends StatelessWidget {
           children: [
             IconButton(
                 onPressed: () {
-                  GoRouter.of(context).push(AppRouter.KHomeView);
+                  GoRouter.of(context).pop(AppRouter.KHomeView);
                 },
                 icon: const Icon(Icons.arrow_back_ios)),
             IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart)),

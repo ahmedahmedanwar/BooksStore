@@ -23,13 +23,10 @@ class FeatueredBooksListView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: GestureDetector(
                       onTap: () {
-                        GoRouter.of(context).push(
-                          AppRouter.KBookDetailsView,
-                          extra: state.books[index],
-                        );
+                        GoRouter.of(context).push(AppRouter.KBookDetailsView,extra: state.books[index]);
                       },
                       child: CustomBookImage(
                         imageUrl: state.books[index].volumeInfo.imageLinks

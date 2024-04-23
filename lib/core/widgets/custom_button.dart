@@ -11,6 +11,7 @@ class CustomButton extends StatelessWidget {
     this.fontWeight,
     required this.text,
     this.fontSize,
+    required this.onPressed,
   });
 
   final Color backgroundColor;
@@ -19,6 +20,7 @@ class CustomButton extends StatelessWidget {
   final FontWeight? fontWeight;
   final String text;
   final double? fontSize;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

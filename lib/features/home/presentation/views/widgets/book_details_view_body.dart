@@ -1,3 +1,4 @@
+import 'package:book_store/features/home/data/models/book_model/book_model.dart';
 import 'package:book_store/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:book_store/features/home/presentation/views/widgets/books_actions.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
@@ -8,28 +9,30 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  const BookDetailsViewBody({super.key, required this.bookModel});
 
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Theme.of(context).colorScheme.background,
-      child: const CustomScrollView(
-      
+      child:  CustomScrollView(
         slivers: [
           SliverFillRemaining(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
               child: Column(
                 children: [
-                  CustomBookDetailsAppBar(),
-                  BooksDetailsSection(),
-                  Expanded(
+                  const CustomBookDetailsAppBar(),
+                  BooksDetailsSection(
+                    bookModel: bookModel,
+                  ),
+                  const Expanded(
                     child: SizedBox(
                       height: 50,
                     ),
                   ),
-                  SimilarBooksSection(),
+                   SimilarBooksSection(bookModel:  bookModel,),
                 ],
               ),
             ),
@@ -41,23 +44,28 @@ class BookDetailsViewBody extends StatelessWidget {
 }
 
 class BooksDetailsSection extends StatelessWidget {
-  const BooksDetailsSection({super.key});
+  const BooksDetailsSection({super.key, required this.bookModel});
 
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-       const String imageUrl = 'https://brenebrown.com/wp-content/uploads/2019/04/WhichBookDoIReadFirst_HeaderImage_Mobile.jpg';
-
+    
     var width = MediaQuery.of(context).size.width;
     return Column(
-  
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.17),
-          child: const CustomBookImage(imageUrl: imageUrl,),
+          child:  CustomBookImage(
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+          ),
         ),
-        const Text(
-          "The Book of elie",
+        const SizedBox(
+          height: 6,
+        ),
+         Text(
+         bookModel.volumeInfo.title as String,
           style: Styles.textStyle30,
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 22,
@@ -65,7 +73,7 @@ class BooksDetailsSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            "The Author name",
+            bookModel.volumeInfo.authors?[0] ?? '',
             style: Styles.textStyle18.copyWith(
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w600,
@@ -73,23 +81,26 @@ class BooksDetailsSection extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 18.0,
+          height: 5.0,
         ),
-        const BookRating(
-          mainAxisAlignment: MainAxisAlignment.center, rating: 9, ratingCount: 7 ,
+          BookRating(
+          mainAxisAlignment: MainAxisAlignment.center,
+          rating: bookModel.volumeInfo.averageRating ?? 0,
+          ratingCount: bookModel.volumeInfo.ratingsCount ?? 0,
         ),
         const SizedBox(
-          height: 35.0,
+          height: 20.0,
         ),
-        const BooksAction(),
+         BooksAction(bookModel: bookModel,),
       ],
     );
   }
 }
 
 class SimilarBooksSection extends StatelessWidget {
-  const SimilarBooksSection({super.key});
+  const SimilarBooksSection({super.key, required this.bookModel});
 
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -1,6 +1,6 @@
 import 'package:book_store/constants.dart';
 import 'package:book_store/core/utils/styles.dart';
-import 'package:book_store/features/home/presentation/views/widgets/best_seller_list_view.dart';
+import 'package:book_store/features/home/presentation/views/widgets/newest_books_list_view.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:book_store/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/cupertino.dart';
