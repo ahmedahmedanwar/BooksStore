@@ -22,7 +22,7 @@ class BookStore extends StatelessWidget {
         BlocProvider(
           create: (context) => FeatuerdBooksCubit(
             getIt.get<HomeRepoImpl>(),
-          )..fetchFeatuerdBooks,
+          )..fetchFeaturedBooks(),
          
         ),
      

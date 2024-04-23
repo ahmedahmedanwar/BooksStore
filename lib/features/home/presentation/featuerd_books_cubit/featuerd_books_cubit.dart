@@ -9,19 +9,15 @@ class FeatuerdBooksCubit extends Cubit<FeaturedBooksState> {
   FeatuerdBooksCubit(this.homeRepo) : super(FeaturedBooksInitial());
 
 // we use this HomeRepo object because we are going to use it's methods =>
-  final HomeRepo homeRepo;
+final HomeRepo homeRepo;
 
-  Future<void> fetchFeatuerdBooks() async {
-    emit(FeaturedBooksLoading());
-    var result = await homeRepo.fetchFeaturedBooks();
-    result.fold((failure) {
+Future <void> fetchFeaturedBooks()async{
+   emit(FeaturedBooksLoading());
+     var result = await homeRepo.fetchFeaturedBooks();
+     result.fold((failure) {
       emit(FeaturedBooksFailure(failure.errorMessage));
     }, (books) {
       emit(FeaturedBooksSuccess(books));
-          
-
-    }
-    );
-   
+    });
   }
 }

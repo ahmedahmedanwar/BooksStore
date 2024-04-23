@@ -69,11 +69,13 @@ class HomeRepoImpl implements HomeRepo {
           books.add(BookModel.fromJson(item));
         } catch (e) {
           books.add(BookModel.fromJson(item));
+          print(item);
         }
       }
 
       return right(books);
     } catch (e) {
+      left(ServerFaliuer(e.toString()));
       if (e is DioException) {
         return left(
           ServerFaliuer.fromDioError(e),
@@ -91,10 +93,15 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
+          endPoint: 'volumes?Filtering=free-ebooks&q=subject:Computer Since');
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } catch (e) {
+          books.add(BookModel.fromJson(item));
+          print(item);
+        }
       }
 
       return right(books);
@@ -138,5 +145,4 @@ class HomeRepoImpl implements HomeRepo {
       );
     }
   }
-
 }

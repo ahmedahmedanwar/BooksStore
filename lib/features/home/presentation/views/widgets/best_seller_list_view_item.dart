@@ -25,7 +25,10 @@ class BookListViewItem extends StatelessWidget {
         child: Row(
           children: [
             CustomBookImage(
-                imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail),
+              
+                  imageUrl: bookModel.volumeInfo.imageLinks
+                                ?.smallThumbnail ??
+                            '',
             // AspectRatio(
             //   aspectRatio: 3 / 4,
             //   child: Container(
@@ -36,7 +39,7 @@ class BookListViewItem extends StatelessWidget {
             //           fit: BoxFit.fill),
             //     ),
             //   ),
-            // ),
+            ),
             const SizedBox(
               width: 30,
             ),
