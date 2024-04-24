@@ -1,7 +1,9 @@
+import 'package:book_store/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/cupertino.dart';
 
 class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({super.key});
+  const  SearchResultListView({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class SearchResultListView extends StatelessWidget {
       itemBuilder: (context, index) {
         // after changing books list view items it makes error so for now changing it to a text widget  
         // return const BookListViewItem();
-        return const Text('Search');
+        return const FeatueredBooksListView();
       },
     );
   }

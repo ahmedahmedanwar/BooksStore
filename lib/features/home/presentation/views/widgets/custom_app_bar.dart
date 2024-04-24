@@ -21,10 +21,14 @@ class CustumAppBar extends StatelessWidget {
           //     GoRouter.of(context).push(AppRouter.KMainDrawer);
           //   },icon: const Icon(FontAwesomeIcons.bars,),),
           // ),
-
+        IconButton(onPressed: (){
+           GoRouter.of(context).push(AppRouter.KMainDrawer);
+        }, icon: const Icon(FontAwesomeIcons.bars,color:  Color.fromARGB(255, 24, 125, 132), ),), 
           Image.asset(
             AssetsData.logo,
-            height: 25,
+            // height: 100,
+            width: 100,
+           fit: BoxFit.fitWidth,
           ),
           const Spacer(),
           IconButton(
@@ -33,6 +37,7 @@ class CustumAppBar extends StatelessWidget {
             },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
+              color: Color.fromARGB(255, 24, 125, 132),
               size: 25,
             ),
           ),

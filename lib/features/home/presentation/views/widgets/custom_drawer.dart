@@ -15,7 +15,7 @@ class MainDrawer extends StatelessWidget {
       child: Column(
         children: [
           AppBar(
-            title: const Text(' Bookly'),
+            title: const Text(' Book'),
             automaticallyImplyLeading: false,
           ),
 

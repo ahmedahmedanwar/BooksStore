@@ -29,7 +29,7 @@ class BooksAction extends StatelessWidget {
               onPressed: () {
                 launchCustomUr(context, 'bookModel.volumeInfo.previewLink');
               },
-              text: 'Preview ',
+              text: getText(bookModel),
               backgroundColor: Colors.orange,
               textColor: Colors.black,
               borderRadius: const BorderRadius.only(
@@ -40,5 +40,14 @@ class BooksAction extends StatelessWidget {
         ],
       ),
     );
+  }
+  
+  String getText(BookModel bookModel) {
+
+    if (bookModel.volumeInfo.previewLink == null){
+      return 'Not available ';
+    }else {
+      return 'Preview Book';
+    }
   }
 }
