@@ -4,7 +4,7 @@ import 'package:book_store/features/home/data/models/book_model/book_model.dart'
 import 'package:book_store/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-
+import 'package:get_it/get_it.dart';
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
 
@@ -101,5 +101,20 @@ class HomeRepoImpl implements HomeRepo {
       );
     }
   }
+
+  //   @override
+  //     Future<Either<Failure, List<BookModel>>> fetchSearchBooks(String query) async {
+  //   try {
+  //     var data = await apiService.searchBooks(query);
+  //     List<BookModel> books = (data['items'] as List)
+  //         .map((item) => BookModel.fromJson(item))
+  //         .toList();
+  //     return right(books);
+  //   } catch (e) {
+  //     return left(ServerFaliuer(e.toString()));
+  //   }
+  // }
+  
+
 }
 

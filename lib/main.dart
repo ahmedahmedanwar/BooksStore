@@ -6,9 +6,12 @@ import 'package:book_store/features/home/presentation/featuerd_books_cubit/featu
 import 'package:book_store/features/home/presentation/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 void main() {
   setupGetItServiceLocator();
+  
   runApp(const BookStore());
 }
 
@@ -32,27 +35,31 @@ class BookStore extends StatelessWidget {
           )..fetchNewestBooks(),
         ),
       ],
-      child: MaterialApp.router(
+        child: MaterialApp.router(
           routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,
-          theme: darkMode
+          theme: darkMode.copyWith(
+              textTheme: GoogleFonts.montserratTextTheme(
+              ThemeData.dark().textTheme,
+            ),
+          )
           //  ThemeData.dark().copyWith(
           //   // scaffoldBackgroundColor: KPrimaryColor,
-          //   textTheme: GoogleFonts.montserratTextTheme(
-          //     ThemeData.dark().textTheme,
-          //   ),
+            // textTheme: GoogleFonts.montserratTextTheme(
+            //   ThemeData.dark().textTheme,
+            // ),
           // ),
           ),
+      //  child: MaterialApp.router(
+      //   routerConfig: AppRouter.router,
+      //   debugShowCheckedModeBanner: false,
+      //   theme: ThemeData.dark().copyWith(
+      //     scaffoldBackgroundColor: kPrimaryColor,
+      //     textTheme:
+      //         GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+      //   ),
+      // ),
     );
-    // return  GetMaterialApp(
-    //   debugShowCheckedModeBanner: false,
-    //   theme: ThemeData.dark().copyWith(
-    //     scaffoldBackgroundColor: KPrimaryColor,
-    //     textTheme: GoogleFonts.montserratTextTheme(
-    //       ThemeData.dark().textTheme,
-    //     ),
-    //   ),
-    //   home: const SplashView(),
-    // );
+
   }
 }

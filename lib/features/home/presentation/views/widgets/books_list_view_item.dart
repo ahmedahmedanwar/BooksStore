@@ -16,31 +16,24 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-
-        GoRouter.of(context).push(
-          AppRouter.KBookDetailsView,
-          extra: bookModel
-        );
+        GoRouter.of(context).push(AppRouter.KBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 125,
         child: Row(
           children: [
             CustomBookImage(
-              
-                  imageUrl: bookModel.volumeInfo.imageLinks
-                                ?.smallThumbnail ??
-                            '',
-            // AspectRatio(
-            //   aspectRatio: 3 / 4,
-            //   child: Container(
-            //     decoration: const BoxDecoration(
-            //       borderRadius: BorderRadius.all(Radius.circular(8)),
-            //       image: DecorationImage(
-            //           image: AssetImage(AssetsData.testImage),
-            //           fit: BoxFit.fill),
-            //     ),
-            //   ),
+              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? errImage,
+              // AspectRatio(
+              //   aspectRatio: 3 / 4,
+              //   child: Container(
+              //     decoration: const BoxDecoration(
+              //       borderRadius: BorderRadius.all(Radius.circular(8)),
+              //       image: DecorationImage(
+              //           image: AssetImage(AssetsData.testImage),
+              //           fit: BoxFit.fill),
+              //     ),
+              //   ),
             ),
             const SizedBox(
               width: 30,
@@ -50,10 +43,10 @@ class BookListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.6,
                     child: Text(
                       //getting books text info title
-                      bookModel.volumeInfo.title!,
+                      bookModel.volumeInfo.title ?? '',
                       style: Styles.textStyle20.copyWith(
                         fontFamily: KGSectraFine,
                       ),
@@ -65,7 +58,7 @@ class BookListViewItem extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0] ?? 'No authors founded',
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
@@ -80,8 +73,8 @@ class BookListViewItem extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                       BookRating(
-                        rating: bookModel.volumeInfo.averageRating?? 0,
+                      BookRating(
+                        rating: bookModel.volumeInfo.averageRating ?? 0,
                         ratingCount: bookModel.volumeInfo.ratingsCount ?? 0,
                       ),
                     ],

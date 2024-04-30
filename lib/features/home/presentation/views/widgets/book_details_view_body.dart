@@ -63,7 +63,7 @@ class BooksDetailsSection extends StatelessWidget {
           height: 6,
         ),
          Text(
-         bookModel.volumeInfo.title as String,
+         bookModel.volumeInfo.title as String ?? '',
           style: Styles.textStyle30,
           textAlign: TextAlign.center,
         ),

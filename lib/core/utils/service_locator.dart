@@ -11,3 +11,8 @@ void setupGetItServiceLocator() {
   getIt.get<ApiService>(),
   ));
 }
+// void setupGetItServiceLocator() {
+//   getIt.registerSingleton<Dio>(Dio());  // Registering Dio
+//   getIt.registerSingleton<ApiService>(ApiService(getIt<Dio>()));  // ApiService requires Dio
+//   getIt.registerSingleton<HomeRepo>(HomeRepoImpl(getIt<ApiService>()));  // Register HomeRepoImpl as HomeRepo
+// }

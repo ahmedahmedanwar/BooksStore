@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../constants.dart';
+
 class FeatueredBooksListView extends StatelessWidget {
   const FeatueredBooksListView({super.key});
 
@@ -31,7 +33,7 @@ class FeatueredBooksListView extends StatelessWidget {
                       child: CustomBookImage(
                         imageUrl: state.books[index].volumeInfo.imageLinks
                                 ?.smallThumbnail ??
-                            '',
+                            errImage,
                       
                       ),
                     ),
