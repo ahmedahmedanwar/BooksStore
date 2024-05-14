@@ -110,7 +110,6 @@
 
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_router.dart';
@@ -140,11 +139,18 @@ class _CustomAppBarState extends State<CustomAppBar> {
             ),
           ),
           AnimSearchBar(
+            
+            color: const Color.fromARGB(255, 24, 125, 132),
+            // boxShadow: false,
+            // closeSearchOnSuffixTap: true,
+            textFieldColor: const Color.fromARGB(255, 24, 125, 132),
             width: MediaQuery.of(context).size.width - 150,
             textController: textController,
+            textFieldIconColor: Colors.white,
             onSuffixTap: () {
               setState(() {
                 textController.clear();
+                
               });
             },
             onSubmitted: (String bookName) {
